@@ -69,12 +69,9 @@ namespace HYDAC
                 nr++; // tæller en op så den næste gæst kan blive skrevet ind på en ny plads.
                 Console.WriteLine("tryk enter for at gå tilbage til meny");
                 Console.ReadLine();
-                Show();
-
-                    
+                Show();                    
             }
-                
-
+            
 
                 
                 Console.ReadLine();
