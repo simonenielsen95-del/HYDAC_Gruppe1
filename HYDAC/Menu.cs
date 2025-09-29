@@ -50,7 +50,7 @@ namespace HYDAC
                 if (nr > 9)
                 {
                     Console.WriteLine("der er ikke plads til flere gæster");
-                    Console.WriteLine("tast enter for at gå tilbage til neny");
+                    Console.WriteLine("tast enter for at gå tilbage til menu");
                     Console.ReadLine();
                     Show();
                 }
@@ -67,7 +67,7 @@ namespace HYDAC
 
                 Console.WriteLine($"gæstens navn er {Navn[nr]}, Virksomheden er {Virksomhed[nr]} og du er gæst nr {Nr[nr]}");
                 nr++; // tæller en op så den næste gæst kan blive skrevet ind på en ny plads.
-                Console.WriteLine("tryk enter for at gå tilbage til meny");
+                Console.WriteLine("Tryk enter for at gå tilbage til menu");
                 Console.ReadLine();
                 Show();                    
             }
