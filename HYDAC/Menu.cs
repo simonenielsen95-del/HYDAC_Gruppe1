@@ -70,7 +70,7 @@ namespace HYDAC
                     Nr[nr] = nr + 1; // til test så vi kan se i udprintet hvad nr gæsten er i listen.
 
 
-                    Console.WriteLine($"gæstens navn er {Navn[nr]}, Virksomheden er {Virksomhed[nr]} og du er gæst nr {Nr[nr]}");
+                    Console.WriteLine($"gæstens navn er {Navn[nr]}\n, Virksomheden er {Virksomhed[nr]}\n og du er gæst nr {Nr[nr]}");
                     nr++; // tæller en op så den næste gæst kan blive skrevet ind på en ny plads.
                     Console.WriteLine("Tryk enter for at gå tilbage til menu");
                     Console.ReadLine();
