@@ -13,7 +13,7 @@ namespace HYDAC
         {
             Menu mainMenu = new Menu();
 
-            mainMenu.Title = "HYDAC Menu";
+            mainMenu.Title = "HYDAC Gæste Bog";
             mainMenu.MenuItems = new MenuItem[10];
 
             // First menu item
