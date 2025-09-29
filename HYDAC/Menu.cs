@@ -8,11 +8,6 @@ using HYDAC;
 
 namespace HYDAC
 {
-
-
-
-
-
     internal class Menu //stilesering?
     
     {

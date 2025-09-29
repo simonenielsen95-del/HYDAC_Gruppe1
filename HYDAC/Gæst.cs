@@ -11,9 +11,9 @@ namespace HYDAC
     {
 
         private string guestName;
-  
+
         private string companyName;
-       
+
         private string date; //Dato for ankomst
         private string arrival; //Klokkeslæt for ankomst
 
@@ -28,7 +28,7 @@ namespace HYDAC
             get { return companyName; }
             set { companyName = value; }
         }
-        
+
         public string Date //Dato for ankomst
         {
             get { return date; }
@@ -39,8 +39,8 @@ namespace HYDAC
             get { return arrival; }
             set { arrival = value; }
         }
-            
-        
+
+
     }
 }
 
