@@ -14,27 +14,27 @@ namespace HYDAC
   
         private string companyName;
        
-        private string date;
-        private string arrival;
+        private string date; //Dato for ankomst
+        private string arrival; //Klokkeslæt for ankomst
 
-        public string GuestName
+        public string GuestName //Gæstens navn
         {
             get { return guestName; }
             set { guestName = value; }
         }
 
-        public string CompanyName
+        public string CompanyName //Virksomhedsnavn
         {
             get { return companyName; }
             set { companyName = value; }
         }
         
-        public string Date
+        public string Date //Dato for ankomst
         {
             get { return date; }
             set { date = value; }
         }
-        public string Arrival
+        public string Arrival //klokkeslæt for ankomst
         {
             get { return arrival; }
             set { arrival = value; }
