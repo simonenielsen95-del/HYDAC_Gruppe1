@@ -17,6 +17,9 @@ namespace HYDAC
         public MenuItem[] MenuItems;
         public int ItemCount = 0;
 
+        Gæst[] gæster = new Gæst[10];
+
+
         public string[] Name = new string[10]; // array til at holde navn på gæsten
         public string[] Company = new string[10]; // array til at holde på virksomheden på gæsten
         public string[] Date = new string[10]; // array til at holde på datoen på gæsten
@@ -100,7 +103,7 @@ namespace HYDAC
             {
                 Console.WriteLine(" Gæstebog:");
                 Console.WriteLine("-------------------------------------");
-                for (int i = 0; i < nr;)
+                for (int i = 0; i < nr; i++)
                 {
                     Console.WriteLine(
                         " \n" +
@@ -111,26 +114,93 @@ namespace HYDAC
                         $"Du er gæst nr {Nr[i]}\n"
                         );
                     Console.WriteLine("-------------------------------------");
-                    i++;                
                 }
                 Console.ReadLine();
                 Show();
+            }
+            if (MI == "3")
+            {
+             Console.WriteLine("Slet Gæst");
+
+             Console.WriteLine("indtast navn:");
+
+             bool foundName = false;
+
+             string name = Console.ReadLine();
+
+                 for (int i = 0; i < nr;)
+                 { 
+                        if (Name[i] == name)
+                        {
+                            var navneListe = Name.ToList();
+                            navneListe.RemoveAt(i);
+                            string.Join(" ", navneListe);
+                            Name = navneListe.ToArray();
+                            
+
+                            var virksomhedListe = Company.ToList();
+                            virksomhedListe.RemoveAt(i);
+                            string.Join(" ", virksomhedListe);
+                            Company = virksomhedListe.ToArray();
+                            
+
+                            var dato = Date.ToList();
+                            dato.RemoveAt(i);
+                            string.Join(" ", dato);
+                            Date = dato.ToArray();
+                            
+
+                            var ankomst = Arrival.ToList();
+                            ankomst.RemoveAt(i);
+                            string.Join(" ", ankomst);
+                            Arrival = ankomst.ToArray();
+                            
+
+                            var nummer = Nr.ToList();
+                            nummer.RemoveAt(i);
+                            string.Join(" ", nummer);
+                            Nr = nummer.ToArray();
+                            
 
 
+
+                        foundName = true;
+
+                            Console.WriteLine("Gæst slettet");
+                            Console.ReadLine();
+                            Show();
+
+                        }
+                        else
+                        {
+                        i++;
+                        }
+
+                    
+                 }
+                 if (!foundName)
+                 {
+                        Console.WriteLine("kunne ikke finde gæsten");
+                        Console.ReadLine();
+
+                 }
+
+
+            }
                     Console.ReadLine();
 
 
 
 
-            }
-                
-                
-            
-            
         }
-
-        
-        
-
+                
+                
+            
+            
     }
+
+        
+        
+
+    
 }
