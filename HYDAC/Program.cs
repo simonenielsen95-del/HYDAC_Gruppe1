@@ -43,6 +43,7 @@ namespace HYDAC
             mainMenu.Show();
 
             Console.ReadLine();
+            Console.ReadLine();
         }
 
     }
