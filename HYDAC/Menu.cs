@@ -22,8 +22,10 @@ namespace HYDAC
         public MenuItem[] MenuItems;
         public int ItemCount = 0;
 
-        public string[] Navn = new string[10]; // array til at holde navn på gæsten
-        public string[] Virksomhed = new string[10]; // array til at holde på virksomheden på gæsten
+        public string[] Name = new string[10]; // array til at holde navn på gæsten
+        public string[] Company = new string[10]; // array til at holde på virksomheden på gæsten
+        public string[] Date = new string[10]; // array til at holde på datoen på gæsten
+        public string[] Arrival = new string[10]; // array til at holde på ankomst tiden på gæsten
 
         public int[] Nr = new int[10]; // til test for at printe hvad nr personen er blevet skrevet ind som 
         int nr = 0; // holder for at kontrolere index
@@ -60,17 +62,31 @@ namespace HYDAC
                 Console.WriteLine("Intast virksomhed:");
                 gæsten.CompanyName = Console.ReadLine(); // gemmer det indtastede virksomhed
 
+                Console.WriteLine("Indtast dato for ankomst:");
+                gæsten.Date = Console.ReadLine(); // gemmer det indtastede dato
+
+                Console.WriteLine("Indtast klokkeslæt for ankomst:");
+                gæsten.Arrival = Console.ReadLine(); // gemmer den indtastede ankomst tid
+
                 Console.WriteLine("skriv gem for at gemme");
                 string gem = Console.ReadLine();
 
                 if (gem.ToLower() == "gem")
                 {
-                    Navn[nr] = gæsten.GuestName; // putter navnet ind på et array 
-                    Virksomhed[nr] = gæsten.CompanyName; // putter virksomheden ind på et array
+                    Name[nr] = gæsten.GuestName; // putter navnet ind på et array 
+                    Company[nr] = gæsten.CompanyName; // putter virksomheden ind på et array
+                    Date[nr] = gæsten.Date; // putter datoen ind på et array
+                    Arrival[nr] = gæsten.Arrival; // putter ankomst tiden ind på et array
                     Nr[nr] = nr + 1; // til test så vi kan se i udprintet hvad nr gæsten er i listen.
 
-
-                    Console.WriteLine($"gæstens navn er {Navn[nr]}, Virksomheden er {Virksomhed[nr]} og du er gæst nr {Nr[nr]}");
+                    Console.Clear();
+                    Console.WriteLine(
+                        $" Gæstens navn er {Name[nr]}\n " +
+                        $"Virksomheden er {Company[nr]}\n " +
+                        $"Din ankomst dato er {Date[nr]}\n " +
+                        $"Din akomst tid er {Arrival[nr]}\n " +
+                        $"Du er gæst nr {Nr[nr]}\n"
+                        );
                     nr++; // tæller en op så den næste gæst kan blive skrevet ind på en ny plads.
                     Console.WriteLine("Tryk enter for at gå tilbage til menu");
                     Console.ReadLine();
@@ -87,10 +103,19 @@ namespace HYDAC
 
             if (MI == "2")
             {
-
+                Console.WriteLine(" Gæstebog:");
+                Console.WriteLine("-------------------------------------");
                 for (int i = 0; i < nr;)
                 {
-                    Console.WriteLine($"gæstens navn er {Navn[i]}, Virksomheden er {Virksomhed[i]} og du er gæst nr {Nr[i]}");
+                    Console.WriteLine(
+                        " \n" +
+                        $" Gæstens navn er {Name[i]}\n " +
+                        $"Virksomheden er {Company[i]}\n " +
+                        $"Din ankomst dato er {Date[i]}\n " +
+                        $"Din akomst tid er {Arrival[i]}\n " +
+                        $"Du er gæst nr {Nr[i]}\n"
+                        );
+                    Console.WriteLine("-------------------------------------");
                     i++;                
                 }
                 Console.ReadLine();
