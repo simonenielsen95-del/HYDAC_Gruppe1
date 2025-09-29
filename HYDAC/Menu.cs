@@ -63,7 +63,7 @@ namespace HYDAC
                 Console.WriteLine("skriv gem for at gemme");
                 string gem = Console.ReadLine();
 
-                if (gem == "gem")
+                if (gem.ToLower() == "gem")
                 {
                     Navn[nr] = gæsten.GuestName; // putter navnet ind på et array 
                     Virksomhed[nr] = gæsten.CompanyName; // putter virksomheden ind på et array
