@@ -60,26 +60,49 @@ namespace HYDAC
                 Console.WriteLine("Intast virksomhed:");
                 gæsten.CompanyName = Console.ReadLine(); // gemmer det indtastede virksomhed
 
-                Navn[nr] = gæsten.GuestName; // putter navnet ind på et array 
-                Virksomhed[nr] = gæsten.CompanyName; // putter virksomheden ind på et array
-                Nr[nr] = nr + 1; // til test så vi kan se i udprintet hvad nr gæsten er i listen.
+                Console.WriteLine("skriv gem for at gemme");
+                string gem = Console.ReadLine();
+
+                if (gem == "gem")
+                {
+                    Navn[nr] = gæsten.GuestName; // putter navnet ind på et array 
+                    Virksomhed[nr] = gæsten.CompanyName; // putter virksomheden ind på et array
+                    Nr[nr] = nr + 1; // til test så vi kan se i udprintet hvad nr gæsten er i listen.
 
 
-                Console.WriteLine($"gæstens navn er {Navn[nr]}, Virksomheden er {Virksomhed[nr]} og du er gæst nr {Nr[nr]}");
-                nr++; // tæller en op så den næste gæst kan blive skrevet ind på en ny plads.
-                Console.WriteLine("Tryk enter for at gå tilbage til menu");
+                    Console.WriteLine($"gæstens navn er {Navn[nr]}, Virksomheden er {Virksomhed[nr]} og du er gæst nr {Nr[nr]}");
+                    nr++; // tæller en op så den næste gæst kan blive skrevet ind på en ny plads.
+                    Console.WriteLine("Tryk enter for at gå tilbage til menu");
+                    Console.ReadLine();
+                    Show();
+
+                }
+
+                else
+                    Console.WriteLine("intastede oplysninger er ikke gent i gæste bogen");
+                    Console.WriteLine("Tryk enter for at gå tilbage til menu");
+                    Console.ReadLine();
+                    Show();
+            }
+
+            if (MI == "2")
+            {
+
+                for (int i = 0; i < nr;)
+                {
+                    Console.WriteLine($"gæstens navn er {Navn[i]}, Virksomheden er {Virksomhed[i]} og du er gæst nr {Nr[i]}");
+                    i++;                
+                }
                 Console.ReadLine();
                 Show();
+
+
+                    Console.ReadLine();
+
+
+
+
             }
-            
-
-                
-                Console.ReadLine();
-                
-                
-
-                
-
                 
                 
             

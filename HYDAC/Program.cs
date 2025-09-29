@@ -23,10 +23,10 @@ namespace HYDAC
             mainMenu.ItemCount++; // Increment with one; same as: ItemCount = ItemCount + 1
 
             // Second menu item
-            //mi = new MenuItem();
-            //mi.Title = "2. Gør dat";
-            //mainMenu.MenuItems[1] = mi;
-            //mainMenu.ItemCount++;
+            mi = new MenuItem();
+            mi.Title = "2. Se gæste bog";
+            mainMenu.MenuItems[1] = mi;
+            mainMenu.ItemCount++;
 
             // Third menu item
             //mi = new MenuItem();
