@@ -6,37 +6,33 @@ using System.Threading.Tasks;
 using HYDAC;
 
 
+
 namespace HYDAC
 {
     internal class Menu //stilesering?
-    
+
     {
-        public GæsteBog gæsteListe = new GæsteBog(); // BLIVER IKKE BRUGT TIL NOGET (OBS!!!)
-        public Gæst Gæst = new Gæst(); // Bliver ikke brugt til noget (tror jeg) da vi opretter et nyt instance når der bliver valgt "1" fra menyen.
+        
         public string Title;
         public MenuItem[] MenuItems;
         public int ItemCount = 0;
 
-        Gæst[] gæster = new Gæst[10];
+        Gæst[] gæster = new Gæst[10]; // array der kan indeholde class Gæst
 
 
-        public string[] Name = new string[10]; // array til at holde navn på gæsten
-        public string[] Company = new string[10]; // array til at holde på virksomheden på gæsten
-        public string[] Date = new string[10]; // array til at holde på datoen på gæsten
-        public string[] Arrival = new string[10]; // array til at holde på ankomst tiden på gæsten
 
         public int[] Nr = new int[10]; // til test for at printe hvad nr personen er blevet skrevet ind som 
         int nr = 0; // holder for at kontrolere index
 
         public void Show()
-        {   
+        {
             Console.Clear();
             Console.WriteLine(Title);
             Console.WriteLine();
             for (int i = 0; i < ItemCount; i++)
             {
                 Console.WriteLine("   " + MenuItems[i].Title);
-                
+
             }
             Console.WriteLine();
             Console.WriteLine("(Tryk menupunkt eller 0 for at afslutte)");
@@ -45,9 +41,11 @@ namespace HYDAC
 
             if (MI == "1")
             {
-                Gæst gæsten = new Gæst(); // laver en ny instance af Gæst under gæsten.
 
-                if (nr > 9)
+                
+                gæster[nr] = new Gæst(); // indsætter en ny gæst ind på et index af Gæst arrayet
+
+                if (nr > 9) // tjekker om der kan være flere gæster i array
                 {
                     Console.WriteLine("der er ikke plads til flere gæster");
                     Console.WriteLine("tast enter for at gå tilbage til menu");
@@ -55,37 +53,25 @@ namespace HYDAC
                     Show();
                 }
                 Console.WriteLine("Intast navn:");
-                gæsten.GuestName = Console.ReadLine();  // gemmer det indtastede navn 
-                
+                gæster[nr].GuestName = Console.ReadLine();  // gemmer det indtastede navn 
+
                 Console.WriteLine("Intast virksomhed:");
-                gæsten.CompanyName = Console.ReadLine(); // gemmer det indtastede virksomhed
+                gæster[nr].CompanyName = Console.ReadLine(); // gemmer det indtastede virksomhed
 
                 Console.WriteLine("Indtast dato for ankomst:");
-                gæsten.Date = Console.ReadLine(); // gemmer det indtastede dato
+                gæster[nr].Date = Console.ReadLine(); // gemmer det indtastede dato
 
                 Console.WriteLine("Indtast klokkeslæt for ankomst:");
-                gæsten.Arrival = Console.ReadLine(); // gemmer den indtastede ankomst tid
+                gæster[nr].Arrival = Console.ReadLine(); // gemmer den indtastede ankomst tid
 
-                Console.WriteLine("skriv gem for at gemme");
+                Console.WriteLine("skriv gem for at gemme"); // lige nu gemmes gæsten uanset hvad der bliver indtastet her
                 string gem = Console.ReadLine();
 
                 if (gem.ToLower() == "gem")
                 {
-                    Name[nr] = gæsten.GuestName; // putter navnet ind på et array 
-                    Company[nr] = gæsten.CompanyName; // putter virksomheden ind på et array
-                    Date[nr] = gæsten.Date; // putter datoen ind på et array
-                    Arrival[nr] = gæsten.Arrival; // putter ankomst tiden ind på et array
-                    Nr[nr] = nr + 1; // til test så vi kan se i udprintet hvad nr gæsten er i listen.
 
-                    Console.Clear();
-                    Console.WriteLine(
-                        $" Gæstens navn er {Name[nr]}\n " +
-                        $"Virksomheden er {Company[nr]}\n " +
-                        $"Din ankomst dato er {Date[nr]}\n " +
-                        $"Din akomst tid er {Arrival[nr]}\n " +
-                        $"Du er gæst nr {Nr[nr]}\n"
-                        );
                     nr++; // tæller en op så den næste gæst kan blive skrevet ind på en ny plads.
+
                     Console.WriteLine("Tryk enter for at gå tilbage til menu");
                     Console.ReadLine();
                     Show();
@@ -94,113 +80,72 @@ namespace HYDAC
 
                 else
                     Console.WriteLine("intastede oplysninger er ikke gent i gæste bogen");
-                    Console.WriteLine("Tryk enter for at gå tilbage til menu");
-                    Console.ReadLine();
-                    Show();
+                Console.WriteLine("Tryk enter for at gå tilbage til menu");
+                Console.ReadLine();
+                Show();
             }
 
-            if (MI == "2")
+            if (MI == "2") // se i gæstebogen (printer alle gæsterne ud)
             {
                 Console.WriteLine(" Gæstebog:");
                 Console.WriteLine("-------------------------------------");
                 for (int i = 0; i < nr; i++)
                 {
+
                     Console.WriteLine(
                         " \n" +
-                        $" Gæstens navn er {Name[i]}\n " +
-                        $"Virksomheden er {Company[i]}\n " +
-                        $"Din ankomst dato er {Date[i]}\n " +
-                        $"Din akomst tid er {Arrival[i]}\n " +
-                        $"Du er gæst nr {Nr[i]}\n"
+                        $" Gæstens navn er {gæster[i].GuestName}\n " +
+                        $"Virksomheden er {gæster[i].CompanyName}\n " +
+                        $"Din ankomst dato er {gæster[i].Date}\n " +
+                        $"Din akomst tid er {gæster[i].Arrival}\n " +
+                        $"Du er gæst nr {i + 1}\n"
                         );
                     Console.WriteLine("-------------------------------------");
                 }
                 Console.ReadLine();
                 Show();
             }
-            if (MI == "3")
+            if (MI == "3") // forsøg på at slette gæsten igen
             {
-             Console.WriteLine("Slet Gæst");
+                Console.WriteLine("Slet Gæst");
 
-             Console.WriteLine("indtast navn:");
+                Console.WriteLine("indtast navn:");
 
-             bool foundName = false;
+                bool foundName = false;
 
-             string name = Console.ReadLine();
-
-                 for (int i = 0; i < nr;)
-                 { 
-                        if (Name[i] == name)
+                string name = Console.ReadLine();
+                while (!foundName)
+                    for (int i = 0; i < nr; i++)
+                    {
+                        if (gæster[i].GuestName == name)
                         {
-                            var navneListe = Name.ToList();
-                            navneListe.RemoveAt(i);
-                            string.Join(" ", navneListe);
-                            Name = navneListe.ToArray();
-                            
-
-                            var virksomhedListe = Company.ToList();
-                            virksomhedListe.RemoveAt(i);
-                            string.Join(" ", virksomhedListe);
-                            Company = virksomhedListe.ToArray();
-                            
-
-                            var dato = Date.ToList();
-                            dato.RemoveAt(i);
-                            string.Join(" ", dato);
-                            Date = dato.ToArray();
-                            
-
-                            var ankomst = Arrival.ToList();
-                            ankomst.RemoveAt(i);
-                            string.Join(" ", ankomst);
-                            Arrival = ankomst.ToArray();
-                            
-
-                            var nummer = Nr.ToList();
-                            nummer.RemoveAt(i);
-                            string.Join(" ", nummer);
-                            Nr = nummer.ToArray();
-                            
-
-
-
-                        foundName = true;
-
-                            Console.WriteLine("Gæst slettet");
-                            Console.ReadLine();
-                            Show();
-
+                            foundName = true; break;
                         }
                         else
                         {
-                        i++;
+
                         }
 
-                    
-                 }
-                 if (!foundName)
-                 {
-                        Console.WriteLine("kunne ikke finde gæsten");
+
+
+
+
+                       
                         Console.ReadLine();
 
-                 }
+
+
+
+                    }
+
+
 
 
             }
-                    Console.ReadLine();
 
 
 
 
         }
-                
-                
-            
-            
     }
-
-        
-        
-
-    
 }
