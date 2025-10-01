@@ -137,7 +137,7 @@ namespace HYDAC
                         Show();
                     }
                 }
-                if (!foundName)
+                if (!foundName) // hvis ingen gæster er fundet med machende navn
                 {
                     Console.WriteLine("gæsten kunne ikke findes i gæstebogen");
                     Console.WriteLine("tast enter for at komme tilbage til menuen.");
