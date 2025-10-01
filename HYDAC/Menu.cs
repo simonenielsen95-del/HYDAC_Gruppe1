@@ -116,29 +116,26 @@ namespace HYDAC
                 Show();
             }
 
-            if (MI == "3") // forsøg på at slette gæsten igen (det virker hvis gæsten ER i gæstebogen ellers crasher det)
+            if (MI == "3") // slette gæsten igen
             {
                 Console.WriteLine("Slet Gæst");
                 Console.WriteLine("indtast navn:");
                 string name = Console.ReadLine();
                 bool foundName = false;
                 Console.Clear();
-               
-                while (!foundName)
+
+                for (int i = 0; i < gæster.Length; i++)
                 {
-                    for (int i = 0; i < gæster.Length; i++)
+                    if (gæster[i] != null && gæster[i].GuestName == name)
                     {
-                        if (gæster[i]!=null && gæster[i].GuestName == name)
-                        {
-                            foundName = true;
-                            gæster[i] = null;
+                        foundName = true;
+                        gæster[i] = null;
 
 
-                            Console.WriteLine("gæsten er nu slettet fra gæstebogen.");
-                            Console.WriteLine("tast enter for at komme tilbage til menuen.");
-                            Console.ReadLine();
-                            Show();
-                        }
+                        Console.WriteLine("gæsten er nu slettet fra gæstebogen.");
+                        Console.WriteLine("tast enter for at komme tilbage til menuen.");
+                        Console.ReadLine();
+                        Show();
                     }
                 }
                 if (!foundName)
@@ -148,13 +145,15 @@ namespace HYDAC
                     Console.ReadLine();
                     Show();
                 }
+
+
             }
-            if (MI=="0")
+            if (MI == "0")
             {
                 return;
             }
         }
     }
 }
-    
+
 
