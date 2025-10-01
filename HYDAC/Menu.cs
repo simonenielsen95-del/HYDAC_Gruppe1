@@ -131,7 +131,6 @@ namespace HYDAC
                         foundName = true;
                         gæster[i] = null;
 
-
                         Console.WriteLine("gæsten er nu slettet fra gæstebogen.");
                         Console.WriteLine("tast enter for at komme tilbage til menuen.");
                         Console.ReadLine();
