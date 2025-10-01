@@ -29,10 +29,10 @@ namespace HYDAC
             mainMenu.ItemCount++;
 
             // Third menu item
-            //mi = new MenuItem();
-            //mi.Title = "3. Gør noget";
-            //mainMenu.MenuItems[2] = mi;
-            //mainMenu.ItemCount++;
+            mi = new MenuItem();
+            mi.Title = "3. Slet gæst";
+            mainMenu.MenuItems[2] = mi;
+            mainMenu.ItemCount++;
 
             // Last menu item
             //mi = new MenuItem();

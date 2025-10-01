@@ -9,21 +9,21 @@ namespace HYDAC
 {
     public class Gæst
     {
-
+        // Private fields (backing fields) for hver propert 
+        // skrevet med camelCase, starter med lille bogstav
         private string guestName;
-
         private string companyName;
+        private string date; 
+        private string arrival;
 
-        private string date; //Dato for ankomst
-        private string arrival; //Klokkeslæt for ankomst
-
+        //Property (skrevet med PascalCase, starter med stor bogstav)
         public string GuestName //Gæstens navn
         {
             get { return guestName; }
             set { guestName = value; }
         }
 
-        public string CompanyName //Virksomhedsnavn
+        public string CompanyName //Virksomhedsnavn Property
         {
             get { return companyName; }
             set { companyName = value; }

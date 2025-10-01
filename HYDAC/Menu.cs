@@ -17,7 +17,7 @@ namespace HYDAC
         public MenuItem[] MenuItems;
         public int ItemCount = 0;
 
-        Gæst[] gæster = new Gæst[10]; // array der kan indeholde class Gæst
+        Gæst[] gæster = new Gæst[10]; // array gæster[] der kan indeholde Gæst på hvert index.
 
         public void Show()
         {
@@ -120,16 +120,16 @@ namespace HYDAC
             {
                 Console.WriteLine("Slet Gæst");
                 Console.WriteLine("indtast navn:");
-                string name = Console.ReadLine();
-                bool foundName = false;
+                string name = Console.ReadLine(); // lokal variabel til at tjekke om der findes et match i gæstebogen.
+                bool foundName = false; // Bool der ændres til true hvis navnet er at finde i gæstebogen.
                 Console.Clear();
 
-                for (int i = 0; i < gæster.Length; i++)
+                for (int i = 0; i < gæster.Length; i++) // looper alle int fra 0 til længden af gæster[].
                 {
-                    if (gæster[i] != null && gæster[i].GuestName == name)
+                    if (gæster[i] != null && gæster[i].GuestName == name) // tjekker om gæster[i] har en gæst gemt i sig og GuestName = name med logisk operatore.
                     {
-                        foundName = true;
-                        gæster[i] = null;
+                        foundName = true; // fundet gæst er nu sand
+                        gæster[i] = null; // gæster[i] bliver sat tilbage til værdi null (sletter gæsten)
 
                         Console.WriteLine("gæsten er nu slettet fra gæstebogen.");
                         Console.WriteLine("tast enter for at komme tilbage til menuen.");
@@ -144,7 +144,6 @@ namespace HYDAC
                     Console.ReadLine();
                     Show();
                 }
-
 
             }
             if (MI == "0")
