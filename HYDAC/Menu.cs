@@ -133,7 +133,7 @@ namespace HYDAC
 
                         Console.WriteLine("gæsten er nu slettet fra gæstebogen.");
                         Console.WriteLine("tast enter for at komme tilbage til menuen.");
-                        Console.ReadLine();
+                        Console.ReadKey(); // bliver udført uanset indput. tager kun et ellement som indput. 
                         Show();
                     }
                 }
@@ -141,7 +141,7 @@ namespace HYDAC
                 {
                     Console.WriteLine("gæsten kunne ikke findes i gæstebogen");
                     Console.WriteLine("tast enter for at komme tilbage til menuen.");
-                    Console.ReadLine();
+                    Console.ReadKey(); 
                     Show();
                 }
 
